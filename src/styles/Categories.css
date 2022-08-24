@@ -1,0 +1,13 @@
+.categories-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.categories-section button {
+  width: 300px;
+  height: 60px;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: #fff;
+}
