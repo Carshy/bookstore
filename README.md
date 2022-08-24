@@ -4,7 +4,7 @@
 
 The present project is part of the Microverse curriculum Module 3 Block 1. The main objective is putting hands on practice to build a web application using React.
 
-![screenshot](img/photo1.PNG)
+![screenshot](src/img/photo1.PNG)
 
 ## Built With
 
