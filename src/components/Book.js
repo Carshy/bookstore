@@ -29,7 +29,7 @@ const Book = ({ book }) => (
 
 Book.propTypes = {
   book: PropTypes.shape({
-    id: PropTypes.string,
+    id: PropTypes.number,
     title: PropTypes.string,
     author: PropTypes.string,
     genre: PropTypes.string,
@@ -38,7 +38,7 @@ Book.propTypes = {
 
 Book.defaultProps = {
   book: {
-    id: 'laws48',
+    id: 1,
     title: '48 Laws of Power',
     author: 'Robert Greene',
     genre: 'Non-Fiction',
