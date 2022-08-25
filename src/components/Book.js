@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import { useDispatch } from 'react-redux';
 import '../styles/Book.css';
 
 const Book = ({ book }) => (
@@ -37,12 +38,7 @@ Book.propTypes = {
 };
 
 Book.defaultProps = {
-  book: {
-    id: 1,
-    title: '48 Laws of Power',
-    author: 'Robert Greene',
-    genre: 'Non-Fiction',
-  },
+  book: {},
 };
 
 export default Book;
