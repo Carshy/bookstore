@@ -1,5 +1,5 @@
 // Defining action types to check the status
-const ADD_CATEGORY = 'bookStore/books/ADD_CATEGORY';
+const ADD_CATEGORY = 'bookstore/books/ADD_CATEGORY';
 const CATEGORY_STATUS = 'Still under construction';
 
 // Setting initial state
