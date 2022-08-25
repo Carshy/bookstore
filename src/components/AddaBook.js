@@ -25,7 +25,7 @@ function AddaBook() {
     const id = uuidv4;
     dispatch(addaBook(id, title, author));
     setTitle('');
-    setAuthor();
+    setAuthor('');
   };
 
   return (

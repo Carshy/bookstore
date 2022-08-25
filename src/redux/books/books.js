@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 // Defining Action types to add and remove a book
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
-const REMOVE_BOOK = 'bookstore/books/ADD_BOOK';
+const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 
 // Setting the initial state
 const initialState = [
@@ -39,7 +39,7 @@ export const addaBook = (id, title, author) => ({
 });
 
 export const removeaBook = (id) => ({
-  type: ADD_BOOK,
+  type: REMOVE_BOOK,
   payload: {
     id,
   },
