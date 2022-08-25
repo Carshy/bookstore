@@ -40,9 +40,7 @@ export const addaBook = (id, title, author) => ({
 
 export const removeaBook = (id) => ({
   type: REMOVE_BOOK,
-  payload: {
-    id,
-  },
+  payload: id,
 });
 
 // Book Reducer to modify state actions
