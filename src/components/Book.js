@@ -45,7 +45,7 @@ const Book = (props) => {
 Book.propTypes = {
   book: PropTypes.shape({
     category: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
   }).isRequired,

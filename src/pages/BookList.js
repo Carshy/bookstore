@@ -6,6 +6,7 @@ import { getApiBook } from '../redux/books/books';
 
 function BookList() {
   const books = useSelector((state) => state.books);
+  console.log(books);
   const dispatch = useDispatch();
 
   useEffect(() => {
