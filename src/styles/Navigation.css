@@ -24,7 +24,10 @@
 }
 
 .nav-items {
+  font-size: 18px;
   text-decoration: none;
+  color: #000;
+  opacity: 0.5;
 }
 
 .bookstore-logo {
