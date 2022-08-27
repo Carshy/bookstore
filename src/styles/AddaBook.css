@@ -1,0 +1,44 @@
+.add-book-section {
+  margin: 2% 0 0 4%;
+}
+
+.input-book {
+  width: 780px;
+  height: 40px;
+  margin-right: 2%;
+  padding-left: 2%;
+  outline: none;
+  border: 1px solid #000;
+  border-radius: 8px;
+  opacity: 0.5;
+  background: #fff;
+  margin-bottom: 3%;
+}
+
+.input-category {
+  width: 400px;
+  height: 40px;
+  margin-right: 2%;
+  padding-left: 2%;
+  outline: none;
+  border: 1px solid #000;
+  border-radius: 8px;
+  opacity: 0.5;
+  background: #fff;
+}
+
+.add-button {
+  width: 75px;
+  height: 40px;
+  outline: none;
+  border: 1px solid #000;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.add-button:hover {
+  border: 3px solid dodgerblue;
+  transition-duration: 0.9s;
+}
