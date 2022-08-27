@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux/es/exports';
 import { addaBook } from '../redux/books/books';
 import '../styles/AddaBook.css';
@@ -22,7 +23,7 @@ function AddaBook() {
   const onSubmit = (e) => {
     e.preventDefault();
     const newBook = {
-      item_id: Math.floor(Math.random() * 51),
+      item_id: uuidv4(),
       author,
       title,
       category: document.getElementById('book-category').value,
@@ -58,7 +59,7 @@ function AddaBook() {
         </select>
 
         <button type="submit" className="add-button">
-          Add New
+          ADD BOOK
         </button>
       </form>
     </div>

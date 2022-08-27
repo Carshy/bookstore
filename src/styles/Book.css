@@ -1,11 +1,15 @@
 .book-types {
-  width: 100%;
-  height: 160px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 190px;
   box-shadow: rgba(25, 25, 25, 0.04) 0 0 1px 0, rgba(0, 0, 0, 0.1) 0 3px 4px 0;
   margin: 0 4% 3% 4%;
-  padding: 1.5% 0 0 3%;
+  padding: 1.5% 3% 0 3%;
   background-color: #fff;
 }
+
+/* Styling the Left Side comprising book Details */
 
 .book-types h2 {
   font-weight: bold;
@@ -36,4 +40,96 @@
   border: none;
   color: #45a3ff;
   opacity: 0.5;
+}
+
+/* Styling the middle part consisting of the progress bar */
+.middle-section {
+  display: flex;
+  gap: 30px;
+  margin: auto 0;
+}
+
+.circle-wrapper {
+  margin: auto auto;
+  width: 111px;
+  height: 110px;
+  background: #d3d3d3;
+  border-radius: 50%;
+}
+
+.set-percentages {
+  margin-left: 30px;
+}
+
+.set-percentages h2 {
+  font-size: 35px;
+}
+
+.mask .fill {
+  clip: rect(0, 75px, 150px, 0);
+  background-color: #227ded;
+}
+
+.mask.full,
+.circle .fill {
+  animation: fill ease-in-out 3s;
+  transform: rotate(135deg);
+}
+
+.circle-wrapper .circle .mask,
+.circle-wrapper .circle .fill {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.circle-wrapper .circle .mask {
+  clip: rect(0, 150px, 150px, 75px);
+}
+
+.circle-wrapper .inside-circle {
+  width: 103px;
+  height: 103px;
+  border-radius: 50%;
+  background: #fff;
+  line-height: 120px;
+  text-align: center;
+  margin-top: 9px;
+  margin-left: 9px;
+  color: #1e51dc;
+  position: absolute;
+  z-index: 100;
+  font-weight: 700;
+  font-size: 2em;
+}
+
+@keyframes fill {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(135deg);
+  }
+}
+
+/* Styling the right side comprising the update status bar */
+.book-right-section h3 {
+  opacity: 0.5;
+  margin-bottom: 10px;
+  backdrop-filter: blur(3px);
+}
+
+.bookbtn {
+  padding: 10px;
+  background-color: #227ded;
+  color: #fff;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.bookbtn:hover {
+  transform: translateY(-7px);
 }

@@ -3,7 +3,7 @@
 }
 
 .input-book {
-  width: 400px;
+  width: 450px;
   height: 40px;
   margin-right: 2%;
   padding-left: 2%;
@@ -16,7 +16,7 @@
 }
 
 .input-author {
-  width: 250px;
+  width: 350px;
   height: 40px;
   margin-right: 2%;
   padding-left: 2%;
@@ -28,7 +28,7 @@
 }
 
 #book-category {
-  width: 150px;
+  width: 250px;
   height: 40px;
   margin-right: 2%;
   padding-left: 2%;
@@ -40,14 +40,14 @@
 }
 
 .add-button {
-  width: 75px;
+  width: 100px;
   height: 40px;
   outline: none;
+  padding: 8px;
   border: 1px solid #000;
-  border-radius: 8px;
-  background: #fff;
+  background: #227ded;
+  color: #fff;
   cursor: pointer;
-  opacity: 0.5;
 }
 
 .add-button:hover {

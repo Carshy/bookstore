@@ -51,7 +51,7 @@ export const removeaBook = (id) => async (dispatch) => {
     item_id: id,
   };
   return fetch(
-    `${apiBaseUrl}${id}`, {
+    `${apiBaseUrl}/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -78,7 +78,7 @@ const bookReducer = (state = bookArray, action) => {
       ];
     case REMOVE_BOOK:
       return [
-        ...state.filter((book) => book.id !== action.id),
+        ...state.filter((book) => book.item_id !== action.payload),
       ];
     case GET_BOOK:
       return [
