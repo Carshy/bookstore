@@ -1,10 +1,16 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Book from '../components/Book';
 import AddaBook from '../components/AddaBook';
+import { getApiBook } from '../redux/books/books';
 
 function BookList() {
   const books = useSelector((state) => state.books);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getApiBook());
+  }, [dispatch]);
 
   return (
     <div>
@@ -12,7 +18,6 @@ function BookList() {
         books.map((book) => (
           <Book
             key={book.id}
-            id={book.id}
             book={book}
           />
         ))
