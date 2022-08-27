@@ -46,12 +46,12 @@ export const getApiBook = () => (dispatch) => fetch(apiBaseUrl)
   .catch(() => {});
 
 // Remove a Book
-export const removeaBook = (bookID) => async (dispatch) => {
+export const removeaBook = (id) => async (dispatch) => {
   const body = {
-    item_id: bookID,
+    item_id: id,
   };
   return fetch(
-    `${apiBaseUrl}${bookID}`, {
+    `${apiBaseUrl}${id}`, {
       method: 'DELETE',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -63,7 +63,7 @@ export const removeaBook = (bookID) => async (dispatch) => {
       if (response.ok) {
         dispatch({
           type: REMOVE_BOOK,
-          payload: bookID,
+          payload: id,
         });
       }
     }).catch(() => {});

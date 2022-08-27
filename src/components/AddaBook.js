@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux/es/exports';
-import { v4 as uuidv4 } from 'uuid';
 import { addaBook } from '../redux/books/books';
 import '../styles/AddaBook.css';
 
@@ -26,16 +25,11 @@ function AddaBook() {
       item_id: Math.floor(Math.random() * 51),
       author,
       title,
-      category: document.getElementById('bookgenre').value,
+      category: document.getElementById('book-category').value,
     };
     dispatch(addaBook(newBook));
     setAuthor('');
     setTitle('');
-
-    const id = uuidv4;
-    dispatch(addaBook(id, title, author));
-    setTitle('');
-    setAuthor('');
   };
 
   return (
@@ -46,17 +40,18 @@ function AddaBook() {
         <input
           type="text"
           onChange={onAuthorChange}
-          className="input-category"
+          className="input-author"
           name="author"
           value={author}
           placeholder="Author"
         />
 
-        <select name="books" id="bookgenre">
+        <select name="books" id="book-category">
           <option value="Categories">Categories</option>
-          <option value="Red pill">Red pill</option>
-          <option value="Education">Education</option>
-          <option value="Nutrition">Nutrition</option>
+          <option value="Self-Help">Self-Help</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Non-Fiction">Non-Fiction</option>
+          <option value="Drama">Drama</option>
           <option value="Historical">Historical</option>
           <option value="Kids">Kids</option>
           <option value="Thriller">Thriller</option>
