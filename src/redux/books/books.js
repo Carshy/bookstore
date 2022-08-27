@@ -1,60 +1,109 @@
-import { v4 as uuidv4 } from 'uuid';
-
 // Defining Action types to add and remove a book
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
+const GET_BOOK = 'bookstore/books/GET_BOOK';
+
+// API base URL
+const apiBaseUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/PSFj0czVU733DeeFoskd/books';
 
 // Setting the initial state
-const initialState = [
-  {
-    id: uuidv4(),
-    genre: 'Non-Fiction',
-    title: 'The Secret',
-    author: 'Rhonda Byrne',
-  },
+const bookArray = [];
 
-  {
-    id: uuidv4(),
-    genre: 'Self-Help',
-    title: '48 Laws of Power',
-    author: 'Robert Green',
+// exporting Action creators*****************************
+// Add book to the API
+export const addaBook = (book) => (dispatch) => fetch(apiBaseUrl, {
+  method: 'POST',
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
   },
+  body: JSON.stringify(book),
+})
+  .then((response) => {
+    if (response.ok) {
+      dispatch({
+        type: ADD_BOOK,
+        payload: book,
+      });
+    }
+  });
 
-  {
-    id: uuidv4(),
-    genre: 'Self-Help',
-    title: 'Why Men Marry Bitches',
-    author: 'Sherry Argov',
-  },
-];
+// Receive Book from the API
+export const getApiBook = () => (dispatch) => fetch(apiBaseUrl)
+  .then((res) => res.json())
+  .then((data) => {
+    const books = Object.keys(data).map((key) => {
+      const book = data[key][0];
+      return {
+        id: key,
+        ...book,
+      };
+    });
+    dispatch({
+      type: GET_BOOK,
+      payload: books,
+    });
+  })
+  .catch(() => {});
 
-// exporting Action creators
-export const addaBook = (id, title, author) => ({
-  type: ADD_BOOK,
-  payload: {
-    id,
-    title,
-    author,
-  },
-});
-
-export const removeaBook = (id) => ({
-  type: REMOVE_BOOK,
-  payload: id,
-});
+// Remove a Book
+export const removeaBook = (bookID) => async (dispatch) => {
+  const body = {
+    item_id: bookID,
+  };
+  return fetch(
+    `${apiBaseUrl}${bookID}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+      body: JSON.stringify(body),
+    },
+  )
+    .then((response) => {
+      if (response.ok) {
+        dispatch({
+          type: REMOVE_BOOK,
+          payload: bookID,
+        });
+      }
+    }).catch(() => {});
+};
 
 // Book Reducer to modify state actions
-const bookReducer = (state = initialState, action) => {
+const bookReducer = (state = bookArray, action) => {
   switch (action.type) {
     case ADD_BOOK:
-      return [...state, action.payload];
-
+      return [
+        ...state, action.payload,
+      ];
     case REMOVE_BOOK:
-      return state.filter((book) => book.id !== action.payload);
-
+      return [
+        ...state.filter((book) => book.id !== action.id),
+      ];
+    case GET_BOOK:
+      return [
+        ...action.payload,
+      ];
     default:
       return state;
   }
 };
+
+// const bookReducer = (state = initialState, action) => {
+//   switch (action.type) {
+//     case ADD_BOOK:
+//       return [...state, action.payload];
+
+//     case REMOVE_BOOK:
+//       return state.filter((book) => book.id !== action.payload);
+//     case GET_BOOK:
+//       return [
+//         ...action.payload,
+//       ];
+
+//     default:
+//       return state;
+//   }
+// };
 
 export default bookReducer;

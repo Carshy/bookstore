@@ -22,6 +22,16 @@ function AddaBook() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    const newBook = {
+      item_id: Math.floor(Math.random() * 51),
+      author,
+      title,
+      category: document.getElementById('bookgenre').value,
+    };
+    dispatch(addaBook(newBook));
+    setAuthor('');
+    setTitle('');
+
     const id = uuidv4;
     dispatch(addaBook(id, title, author));
     setTitle('');
@@ -41,6 +51,17 @@ function AddaBook() {
           value={author}
           placeholder="Author"
         />
+
+        <select name="books" id="bookgenre">
+          <option value="Categories">Categories</option>
+          <option value="Red pill">Red pill</option>
+          <option value="Education">Education</option>
+          <option value="Nutrition">Nutrition</option>
+          <option value="Historical">Historical</option>
+          <option value="Kids">Kids</option>
+          <option value="Thriller">Thriller</option>
+        </select>
+
         <button type="submit" className="add-button">
           Add New
         </button>
